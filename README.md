@@ -3,7 +3,7 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-is-mobile-shim.svg)](http://emberobserver.com/addons/ember-cli-is-mobile-shim)
 [![Ember badge][ember-badge]][embadge]
 
-An ES6 accessible module for isMobile.js within your Ember applications. Includes FastBoot support!
+An ES6 accessible module for [isMobile.js](https://github.com/kaimallea/isMobile) within your Ember applications. Includes FastBoot support!
 
 ## Usage
 
@@ -26,6 +26,10 @@ isMobile(userAgent);
 ## License
 
 ember-cli-is-mobile-shim is [MIT Licensed](https://github.com/sandydoo/ember-cli-is-mobile-shim/blob/master/LICENSE.md).
+
+## Attribution
+
+Technical implementation for FastBoot support based on [ember-cli-moment-shim](https://github.com/jasonmit/ember-cli-moment-shim).
 
 [embadge]: http://embadge.io/
 [ember-badge]: http://embadge.io/v1/badge.svg?start=1.0.0
