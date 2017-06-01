@@ -1,27 +1,33 @@
 # ember-cli-is-mobile-shim
+[![npm Version][npm-badge]][npm]
+[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-is-mobile-shim.svg)](http://emberobserver.com/addons/ember-cli-is-mobile-shim)
+[![Ember badge][ember-badge]][embadge]
 
-This README outlines the details of collaborating on this Ember addon.
+An ES6 accessible module for isMobile.js within your Ember applications. Includes FastBoot support!
 
-## Installation
+## Usage
 
-* `git clone <repository-url>` this repository
-* `cd ember-cli-is-mobile-shim`
-* `npm install`
-* `bower install`
+* `ember install ember-cli-is-mobile-shim`
 
-## Running
+```js
+import isMobile from 'is-mobile';
+```
 
-* `ember serve`
-* Visit your app at [http://localhost:4200](http://localhost:4200).
+In the browser, the isMobile object returns the computed user agent tests.
 
-## Running Tests
+In FastBoot, the import returns the isMobile method since navigator is not available. You can fetch the FastBoot headers and run the method manually.
 
-* `npm test` (Runs `ember try:each` to test your addon against multiple Ember versions)
-* `ember test`
-* `ember test --server`
+```js
+const headers = this.get('fastboot.request.headers');
+const userAgent = headers.get('user-agent');
+isMobile(userAgent);
+```
 
-## Building
+## License
 
-* `ember build`
+ember-cli-is-mobile-shim is [MIT Licensed](https://github.com/sandydoo/ember-cli-is-mobile-shim/blob/master/LICENSE.md).
 
-For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
+[embadge]: http://embadge.io/
+[ember-badge]: http://embadge.io/v1/badge.svg?start=1.0.0
+[npm]: https://www.npmjs.org/package/ember-cli-is-mobile-shim
+[npm-badge]: https://img.shields.io/npm/v/ember-cli-is-mobile-shim.svg?style=flat-square
