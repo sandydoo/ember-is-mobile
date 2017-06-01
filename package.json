@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-is-mobile-shim",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Import isMobile.js into your Ember applications",
   "keywords": [
     "ember-addon",
