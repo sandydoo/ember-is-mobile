@@ -1,1 +1,1 @@
-export { default, initialize } from 'is-mobile/initializers/is-mobile-service-injector';
+export { default, initialize } from 'ember-is-mobile/initializers/is-mobile-service-injector';

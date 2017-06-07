@@ -1,3 +1,4 @@
+/* globals define */
 (function() {
   function vendorModule() {
     'use strict';

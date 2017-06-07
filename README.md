@@ -1,6 +1,6 @@
-# ember-cli-is-mobile-shim
+# ember-is-mobile
 [![npm Version][npm-badge]][npm]
-[![Ember Observer Score](http://emberobserver.com/badges/ember-cli-is-mobile-shim.svg)](http://emberobserver.com/addons/ember-cli-is-mobile-shim)
+[![Ember Observer Score](http://emberobserver.com/badges/ember-is-mobile.svg)](http://emberobserver.com/addons/ember-is-mobile)
 [![Ember badge][ember-badge]][embadge]
 
 A service for accessing [isMobile.js](https://github.com/kaimallea/isMobile) in your Ember applications with **FastBoot** support!
@@ -9,7 +9,7 @@ Also provides isMobile.js as an ES6 accessible module.
 
 ## Usage
 
-* `ember install ember-cli-is-mobile-shim`
+* `ember install ember-is-mobile`
 
 #### isMobile service
 
@@ -58,7 +58,7 @@ Naturally, you can still access isMobile in the browser using `window.isMobile`.
 
 ## License
 
-ember-cli-is-mobile-shim is [MIT Licensed](https://github.com/sandydoo/ember-cli-is-mobile-shim/blob/master/LICENSE.md).
+ember-is-mobile is [MIT Licensed](https://github.com/sandydoo/ember-is-mobile/blob/master/LICENSE.md).
 
 ## Attribution
 
@@ -66,5 +66,5 @@ Technical implementation for FastBoot support based on [ember-cli-moment-shim](h
 
 [embadge]: http://embadge.io/
 [ember-badge]: http://embadge.io/v1/badge.svg?start=1.0.0
-[npm]: https://www.npmjs.org/package/ember-cli-is-mobile-shim
-[npm-badge]: https://img.shields.io/npm/v/ember-cli-is-mobile-shim.svg?style=flat-square
+[npm]: https://www.npmjs.org/package/ember-is-mobile
+[npm-badge]: https://img.shields.io/npm/v/ember-is-mobile.svg?style=flat-square

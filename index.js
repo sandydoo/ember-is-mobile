@@ -14,7 +14,7 @@ function isLegacyFastboot() {
 }
 
 module.exports = {
-  name: 'is-mobile',
+  name: 'ember-is-mobile',
 
   included() {
     this._super.included.apply(this, arguments);

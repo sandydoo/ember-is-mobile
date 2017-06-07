@@ -1,25 +1,25 @@
 {
-  "name": "ember-cli-is-mobile-shim",
+  "name": "ember-is-mobile",
   "version": "0.0.2",
-  "description": "Import isMobile.js into your Ember applications",
+  "description": "Use and import isMobile.js in your Ember applications",
   "keywords": [
     "ember-addon",
     "isMobile",
     "ismobilejs"
   ],
   "bugs": {
-    "url": "https://github.com/sandydoo/ember-cli-is-mobile-shim/issues"
+    "url": "https://github.com/sandydoo/ember-is-mobile/issues"
   },
   "license": "MIT",
   "author": "Sander Melnikov",
-  "homepage": "https://github.com/sandydoo/ember-cli-is-mobile-shim",
+  "homepage": "https://github.com/sandydoo/ember-is-mobile",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sandydoo/ember-cli-is-mobile-shim.git"
+    "url": "git://github.com/sandydoo/ember-is-mobile.git"
   },
   "scripts": {
     "build": "ember build",
