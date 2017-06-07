@@ -3,25 +3,58 @@
 [![Ember Observer Score](http://emberobserver.com/badges/ember-cli-is-mobile-shim.svg)](http://emberobserver.com/addons/ember-cli-is-mobile-shim)
 [![Ember badge][ember-badge]][embadge]
 
-An ES6 accessible module for [isMobile.js](https://github.com/kaimallea/isMobile) within your Ember applications. Includes FastBoot support!
+A service for accessing [isMobile.js](https://github.com/kaimallea/isMobile) in your Ember applications with **FastBoot** support!
+
+Also provides isMobile.js as an ES6 accessible module.
 
 ## Usage
 
 * `ember install ember-cli-is-mobile-shim`
 
+#### isMobile service
+
+The isMobile service is auto-injected into your app and provides access to the pre-computed user agent tests provided by isMobile.js. This service works in both the browser and in FastBoot.
+
+You can query the user agent tests in your controllers, components and routes:
+
 ```js
-import isMobile from 'is-mobile';
+this.get('isMobile.any'); // => true|false
+```
+
+The properties are also available in templates:
+
+```handlebars
+{{#if isMobile.any}}
+  I'm on a mobile device!
+{{/if}}
+```
+
+#### Importing
+
+This addon also shims isMobile.js, so you can import it yourself if you need to. Note that it is imported from `ismobilejs`.
+In most cases you should use the service instead. If you need to use this addon as a shim only, open an issue and I'll consider a way of making the service injection opt-out.
+
+```js
+import isMobile from 'ismobilejs';
 ```
 
 In the browser, the isMobile object returns the computed user agent tests.
 
-In FastBoot, the import returns the isMobile method since navigator is not available. You can fetch the FastBoot headers and run the method manually.
+```js
+isMobile(navigator.userAgent); // => { apple: {}, windows: {}, ... }
+```
+
+In FastBoot however, the import returns just the isMobile function, since navigator is obviously not available. You can fetch the FastBoot headers yourself and run the method manually. Note that this syntax will only work in FastBoot.
 
 ```js
-const headers = this.get('fastboot.request.headers');
-const userAgent = headers.get('user-agent');
-isMobile(userAgent);
+if (this.get('fastboot.isFastBoot')) {
+    const headers = this.get('fastboot.request.headers');
+    const userAgent = headers.get('user-agent');
+    isMobile(userAgent); // => { apple: {}, windows: {}, ... }
+}
 ```
+
+Naturally, you can still access isMobile in the browser using `window.isMobile`.
 
 ## License
 

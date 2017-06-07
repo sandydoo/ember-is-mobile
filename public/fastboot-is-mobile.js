@@ -1,13 +1,12 @@
 /* globals define, FastBoot */
 (function() {
-  function vendorModule() {
+  define('ismobilejs', ['exports'], function(exports) {
     'use strict';
 
     let isMobileClass = FastBoot.require('ismobilejs');
-    // Wrap in a function so that when isMobile internally returns `this`, it
-    // doesn't also include the current FastBoot context.
-    return { default: function(userAgent) { return isMobileClass(userAgent); } };
-  }
-
-  define('is-mobile', [], vendorModule);
+    // Change the context so that when isMobile internally sets the results of
+    // the user agent tests to the current scope, it doesn't use the FastBoot
+    // global scope, which is full of unnecessary stuff.
+    return { default: isMobileClass.bind(exports) };
+  });
 })();

@@ -50,6 +50,7 @@ module.exports = {
       },
       { prepend: true }
     );
+    app.import(vendor + '/shims/ismobilejs.js');
   },
 
   treeForVendor(vendorTree) {
