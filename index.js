@@ -31,7 +31,7 @@ module.exports = {
   },
 
   updateFastBootManifest(manifest) {
-    manifest.vendorFiles.push('ismobilejs/' + this.fastbootTarget);
+    manifest.vendorFiles.push('ember-is-mobile/' + this.fastbootTarget);
 
     return manifest;
   },
