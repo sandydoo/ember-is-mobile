@@ -6,15 +6,10 @@ const funnel = require('broccoli-funnel');
 const path = require('path');
 const stew = require('broccoli-stew');
 
-const rename = stew.rename;
 const map = stew.map;
 
-function isLegacyFastboot() {
-  return process.env.EMBER_CLI_FASTBOOT === 'true';
-}
-
 module.exports = {
-  name: 'ember-is-mobile',
+  name: 'ismobilejs',
 
   included() {
     this._super.included.apply(this, arguments);
@@ -23,24 +18,6 @@ module.exports = {
     this.fastbootTarget = 'fastboot-is-mobile.js';
     this.isMobilePath = path.dirname(require.resolve('ismobilejs'));
 
-    if (isLegacyFastboot()) {
-      this.importLegacyFastBootDependencies(app);
-    } else {
-      this.importBrowserDependencies(app);
-    }
-  },
-
-  updateFastBootManifest(manifest) {
-    manifest.vendorFiles.push('ember-is-mobile/' + this.fastbootTarget);
-
-    return manifest;
-  },
-
-  importLegacyFastBootDependencies(app) {
-    app.import(this.treePaths.vendor + '/fastboot-is-mobile.js');
-  },
-
-  importBrowserDependencies(app) {
     let vendor = this.treePaths.vendor;
 
     app.import(
@@ -50,35 +27,27 @@ module.exports = {
       },
       { prepend: true }
     );
-    app.import(vendor + '/shims/ismobilejs.js');
   },
 
-  treeForVendor(vendorTree) {
-    if (isLegacyFastboot()) {
-      return this.legacyTreeForFastBootVendor(vendorTree);
-    }
+  updateFastBootManifest(manifest) {
+    manifest.vendorFiles.push('ismobilejs/' + this.fastbootTarget);
 
-    return this.treeForBrowserVendor(vendorTree);
+    return manifest;
   },
 
-  legacyTreeForFastBootVendor(vendorTree) {
+  treeForPublic() {
+    let hasFastBoot = this.project.addons.some(addon => addon.name === 'ember-cli-fastboot');
+    let publicTree = this._super.treeForPublic.apply(this, arguments);
     let trees = [];
 
-    if (vendorTree) {
-      trees.push(vendorTree);
+    if (publicTree && hasFastBoot) {
+      trees.push(publicTree);
     }
-
-    let tree = funnel(path.join(__dirname, './public'), {
-      files: [this.fastbootTarget]
-    });
-
-    tree = rename(tree, () => 'fastboot-is-mobile.js');
-    trees.push(tree);
 
     return mergeTrees(trees);
   },
 
-  treeForBrowserVendor(vendorTree) {
+  treeForVendor(vendorTree) {
     let trees = [];
 
     if (vendorTree) {

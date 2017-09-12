@@ -1,1 +1,1 @@
-export { default } from 'ember-is-mobile/services/is-mobile';
+export { default } from 'ismobilejs/services/is-mobile';
