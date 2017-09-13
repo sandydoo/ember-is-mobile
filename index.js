@@ -2,7 +2,7 @@
 'use strict';
 
 const mergeTrees = require('broccoli-merge-trees');
-const funnel = require('broccoli-funnel');
+const Funnel = require('broccoli-funnel');
 const path = require('path');
 const stew = require('broccoli-stew');
 
@@ -15,7 +15,6 @@ module.exports = {
     this._super.included.apply(this, arguments);
 
     let app = this._findHost();
-    this.fastbootTarget = 'fastboot-is-mobile.js';
     this.isMobilePath = path.dirname(require.resolve('ismobilejs'));
 
     let vendor = this.treePaths.vendor;
@@ -24,15 +23,8 @@ module.exports = {
       {
         development: vendor + '/ismobilejs/isMobile.js',
         production: vendor + '/ismobilejs/isMobile.min.js'
-      },
-      { prepend: true }
+      }
     );
-  },
-
-  updateFastBootManifest(manifest) {
-    manifest.vendorFiles.push('ismobilejs/' + this.fastbootTarget);
-
-    return manifest;
   },
 
   treeForPublic() {
@@ -55,7 +47,7 @@ module.exports = {
     }
 
     trees.push(
-      funnel(this.isMobilePath, {
+      new Funnel(this.isMobilePath, {
         destDir: 'ismobilejs',
         files: [
           'isMobile.js',
