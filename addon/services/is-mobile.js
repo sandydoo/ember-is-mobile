@@ -1,5 +1,5 @@
 import Service from 'ember-service';
-import get from 'ember-metal/get';
+import get, { getProperties } from 'ember-metal/get';
 import set from 'ember-metal/set';
 import computed from 'ember-computed';
 import getOwner from 'ember-owner/get';
@@ -18,7 +18,7 @@ export default Service.extend({
     if (get(this, 'fastboot.isFastBoot')) {
       const headers = get(this, 'fastboot.request.headers');
       const userAgent = headers.get('user-agent');
-      queries = isMobile(userAgent);
+      queries = getProperties(isMobile(userAgent), ['any', 'phone', 'tablet', 'apple', 'android', 'amazon', 'windows', 'seven_inch', 'other']);
     } else {
       queries = isMobile;
     }
