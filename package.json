@@ -1,6 +1,6 @@
 {
   "name": "ember-is-mobile",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Use and import isMobile.js in your Ember applications",
   "keywords": [
     "ember-addon",
