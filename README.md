@@ -11,9 +11,15 @@ Also provides isMobile.js as an ES6 accessible module.
 
 * `ember install ember-is-mobile`
 
+#### FastBoot requirements
+
+This addon no longer supports pre-1.0 FastBoot versions. You need to use at least `ember-cli-fastboot: 1.0.0+` if you want to use this addon in FastBoot.
+
 #### isMobile service
 
 The isMobile service is auto-injected into your app and provides access to the results of the user agent tests provided by isMobile.js. **This service works in both the browser and in FastBoot**. The FastBoot support is particularly useful if you want to conditionally render large blocks of content to target desktop or mobile devices.
+
+**N.B.** Don't use this addon as a replacement for good responsive design!
 
 You can query the user agent tests in your controllers, components and routes:
 
@@ -28,6 +34,17 @@ The properties are also available in templates:
   I'm on a mobile device!
 {{/if}}
 ```
+
+The full list of user agent tests provided by isMobile:
+* `any`
+* `phone`
+* `tablet`
+* `apple`
+* `android`
+* `amazon`
+* `windows`
+* `seven_inch`
+* `other`
 
 #### Importing
 
@@ -59,6 +76,11 @@ Naturally, you can still access isMobile in the browser using `window.isMobile`.
 ## Upgrading
 
 This addon uses a blueprint to add `ismobilejs` to your app's dependencies using a blueprint. This step is necessary if you're using FastBoot. To get the latest version from the blueprint, run `ember g ember-is-mobile`.
+
+## TODO
+
+* Implement FastBoot tests to avoid regressions.
+* Add a dummy app to test on.
 
 ## License
 
