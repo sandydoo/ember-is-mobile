@@ -1,6 +1,7 @@
 import Service from '@ember/service';
 import { computed, get, getProperties, set } from '@ember/object';
 import { getOwner } from '@ember/application';
+import { isBlank } from '@ember/utils';
 import isMobile from 'ismobilejs';
 
 export default Service.extend({
@@ -15,13 +16,14 @@ export default Service.extend({
     let queries = [];
     if (get(this, 'fastboot.isFastBoot')) {
       const headers = get(this, 'fastboot.request.headers');
-      const userAgent = get(headers, 'user-agent');
-      if (userAgent) {
-        queries = getProperties(
-          isMobile(userAgent),
-          ['any', 'phone', 'tablet', 'apple', 'android', 'amazon', 'windows', 'seven_inch', 'other']
-        );
-      }
+      let userAgent = get(headers, 'headers.user-agent')[0];
+
+      if (isBlank(userAgent)) { return; }
+
+      queries = getProperties(
+        isMobile(userAgent),
+        ['any', 'phone', 'tablet', 'apple', 'android', 'amazon', 'windows', 'seven_inch', 'other']
+      );
     } else {
       queries = isMobile;
     }
