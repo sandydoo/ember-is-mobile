@@ -14,11 +14,16 @@ export default Service.extend({
   init() {
     this._super(...arguments);
 
-    let queries;
+    let queries = [];
     if (get(this, 'fastboot.isFastBoot')) {
       const headers = get(this, 'fastboot.request.headers');
       const userAgent = headers.get('user-agent');
-      queries = getProperties(isMobile(userAgent), ['any', 'phone', 'tablet', 'apple', 'android', 'amazon', 'windows', 'seven_inch', 'other']);
+      if (userAgent) {
+        queries = getProperties(
+          isMobile(userAgent),
+          ['any', 'phone', 'tablet', 'apple', 'android', 'amazon', 'windows', 'seven_inch', 'other']
+        );
+      }
     } else {
       queries = isMobile;
     }
