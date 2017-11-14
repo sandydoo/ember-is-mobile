@@ -1,6 +1,6 @@
 {
   "name": "ember-is-mobile",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Use isMobile.js in your Ember applications with full FastBoot support",
   "keywords": [
     "ember-addon",
