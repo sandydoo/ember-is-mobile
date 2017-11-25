@@ -78,6 +78,10 @@ module.exports = {
       npm: {
         devDependencies: {}
       }
+    },
+    {
+      name: 'fastboot',
+      command: 'npm run test:fastboot'
     }
   ]
 };

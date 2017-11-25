@@ -1,5 +1,5 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+{{#if isMobile.any}}
+    <p id='mobile-device'>I'm a mobile device!</p>
+{{else}}
+    <p id='not-mobile-device'>I'm not a mobile device :(</p>
+{{/if}}

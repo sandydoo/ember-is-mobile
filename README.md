@@ -1,19 +1,22 @@
-# ember-is-mobile
-[![npm Version][npm-badge]][npm]
+# 🐹 ember-is-mobile 📱
 [![Ember Observer Score](http://emberobserver.com/badges/ember-is-mobile.svg)](http://emberobserver.com/addons/ember-is-mobile)
-[![Ember badge][ember-badge]][embadge]
+[![dependencies](https://david-dm.org/sandydoo/ember-is-mobile.svg)](https://david-dm.org/sandydoo/ember-is-mobile)
 
-A service for accessing [isMobile.js](https://github.com/kaimallea/isMobile) in your Ember applications with full support for detecting mobile devices in **FastBoot**!
+> Detect requests from mobile devices in your Ember apps!
 
-Also provides isMobile.js as an ES6 accessible module.
+Works seamlessly in both the browser and in **FastBoot**!
 
-## Usage
+This addon leverages [isMobile.js](https://github.com/kaimallea/isMobile) for parsing user agent strings. It also exports isMobile.js as an ES6 accessible module.
 
-* `ember install ember-is-mobile`
+## Installation
+
+`ember install ember-is-mobile`
 
 #### FastBoot requirements
 
 This addon no longer supports pre-1.0 FastBoot versions. You need to use at least `ember-cli-fastboot: 1.0.0+` if you want to use this addon in FastBoot.
+
+## Usage
 
 #### isMobile service
 
@@ -36,6 +39,7 @@ The properties are also available in templates:
 ```
 
 The full list of user agent tests provided by isMobile:
+
 * `any`
 * `phone`
 * `tablet`
@@ -77,20 +81,6 @@ Naturally, you can still access isMobile in the browser using `window.isMobile`.
 
 This addon uses a blueprint to add `ismobilejs` to your app's dependencies using a blueprint. This step is necessary if you're using FastBoot. To get the latest version from the blueprint, run `ember g ember-is-mobile`.
 
-## TODO
-
-* Implement FastBoot tests to avoid regressions.
-* Add a dummy app to test on.
-
 ## License
 
-ember-is-mobile is [MIT Licensed](https://github.com/sandydoo/ember-is-mobile/blob/master/LICENSE.md).
-
-## Attribution
-
-Technical implementation for FastBoot inspired by [ember-cli-moment-shim](https://github.com/jasonmit/ember-cli-moment-shim).
-
-[embadge]: http://embadge.io/
-[ember-badge]: http://embadge.io/v1/badge.svg?start=1.0.0
-[npm]: https://www.npmjs.org/package/ember-is-mobile
-[npm-badge]: https://img.shields.io/npm/v/ember-is-mobile.svg?style=flat-square
+[MIT](https://github.com/sandydoo/ember-is-mobile/blob/master/LICENSE.md) © Sander Melnikov.
