@@ -1,4 +1,5 @@
 # 🐹 ember-is-mobile 📱
+[![Build Status](https://travis-ci.org/sandydoo/ember-is-mobile.svg?branch=master)](https://travis-ci.org/sandydoo/ember-is-mobile)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-is-mobile.svg)](http://emberobserver.com/addons/ember-is-mobile)
 [![dependencies](https://david-dm.org/sandydoo/ember-is-mobile.svg)](https://david-dm.org/sandydoo/ember-is-mobile)
 
