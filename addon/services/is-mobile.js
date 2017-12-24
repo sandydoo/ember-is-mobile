@@ -16,7 +16,8 @@ export default Service.extend({
 
   init() {
     this._super(...arguments);
-    let queries = [];
+
+    let queries;
     if (get(this, 'fastboot.isFastBoot')) {
       const headers = get(this, 'fastboot.request.headers');
       let userAgent = get(headers, 'headers.user-agent');
