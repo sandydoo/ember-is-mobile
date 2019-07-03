@@ -1,14 +1,8 @@
-import Ember from 'ember';
-
-const {
-  Helper,
-  isPresent,
-  inject: {
-    service
-  },
-  assert,
-  get
-} = Ember;
+import Helper from "@ember/component/helper";
+import { isPresent } from "@ember/utils";
+import { inject as service } from "@ember/service";
+import { assert } from "@ember/debug";
+import { get } from "@ember/object"
 
 export default Helper.extend({
   isMobile: service(),
