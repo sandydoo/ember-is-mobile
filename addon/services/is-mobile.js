@@ -1,5 +1,6 @@
-import Service, { inject as service } from '@ember/service';
-import { get, set } from '@ember/object';
+import Service from '@ember/service';
+import { computed, get, set } from '@ember/object';
+import { getOwner } from '@ember/application';
 import { isBlank } from '@ember/utils';
 import isMobile from 'ismobilejs';
 
@@ -9,7 +10,9 @@ import isMobile from 'ismobilejs';
  * agent header is blank.
  */
 export default Service.extend({
-  fastboot: service('fastboot'),
+  fastboot: computed(function() {
+    return getOwner(this).lookup('service:fastboot');
+  }),
 
   init() {
     this._super(...arguments);

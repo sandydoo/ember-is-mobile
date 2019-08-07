@@ -50,7 +50,7 @@ It expects one argument to be passed as a param.
 {{/if}}
 ```
 
-```html
+```handlebars
 <div class="{{if (is-mobile 'android' 'is-android')}} {{if (is-mobile 'apple' 'is-apple')}}">
   I'm on a mobile device
 </div>
