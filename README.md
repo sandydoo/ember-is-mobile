@@ -3,7 +3,6 @@
 
 [![Build Status](https://travis-ci.org/sandydoo/ember-is-mobile.svg?branch=master)](https://travis-ci.org/sandydoo/ember-is-mobile)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-is-mobile.svg)](http://emberobserver.com/addons/ember-is-mobile)
-[![dependencies](https://david-dm.org/sandydoo/ember-is-mobile.svg)](https://david-dm.org/sandydoo/ember-is-mobile)
 
 > Detect requests from mobile devices in your Ember apps!
 
@@ -51,13 +50,13 @@ The is-mobile helper can be used as an alternative to `isMobile` Service.
 It expects one argument to be passed as a param.
 
 ```handlebars
-{{#if (is-mobile 'any')}}
+{{#if (is-mobile "any")}}
   I'm on a mobile device
 {{/if}}
 ```
 
 ```handlebars
-<div class="{{if (is-mobile 'android') 'is-android'}} {{if (is-mobile 'apple') 'is-apple'}}">
+<div class="{{if (is-mobile "android.phone") "is-android"}} {{if (is-mobile "apple.phone") "is-apple"}}">
   I'm on a mobile device
 </div>
 ```
