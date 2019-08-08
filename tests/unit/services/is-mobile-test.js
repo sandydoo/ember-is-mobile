@@ -4,9 +4,8 @@ import { setupTest } from 'ember-qunit';
 module('Unit | Service | is mobile', function(hooks) {
   setupTest(hooks);
 
-  // Replace this with your real tests.
   test('it exists', function(assert) {
     let service = this.owner.lookup('service:is-mobile');
-    assert.ok(service);
+    assert.ok(typeof service.any === 'boolean');
   });
 });
