@@ -2,7 +2,6 @@
 ==============================================================================
 
 [![Build Status](https://travis-ci.org/sandydoo/ember-is-mobile.svg?branch=master)](https://travis-ci.org/sandydoo/ember-is-mobile)
-[![Ember Observer Score](http://emberobserver.com/badges/ember-is-mobile.svg)](http://emberobserver.com/addons/ember-is-mobile)
 
 > Detect requests from mobile devices in your Ember apps!
 
