@@ -39,6 +39,23 @@ The properties are also available in templates:
 {{/if}}
 ```
 
+### is-mobile Helper
+
+The is-mobile helper can be used as an alternative to `isMobile` Service.
+It expects one argument to be passed as a param.
+
+```handlebars
+{{#if (is-mobile 'any')}}
+  I'm on a mobile device
+{{/if}}
+```
+
+```handlebars
+<div class="{{if (is-mobile 'android') 'is-android'}} {{if (is-mobile 'apple') 'is-apple'}}">
+  I'm on a mobile device
+</div>
+```
+
 The full list of user agent tests provided by isMobile:
 
 * `any`

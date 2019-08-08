@@ -15,6 +15,7 @@ QUnitModule('FastBoot support', function(hooks) {
     })
     .then(function({ document }) {
       assert.ok(document.getElementById('mobile-device'));
+      assert.ok(document.getElementById('mobile-device-helper'));
     });
   });
 
@@ -24,6 +25,7 @@ QUnitModule('FastBoot support', function(hooks) {
     })
     .then(function({ document }) {
       assert.ok(document.getElementById('not-mobile-device'));
+      assert.ok(document.getElementById('not-mobile-device-helper'));
     });
   });
 
@@ -32,6 +34,7 @@ QUnitModule('FastBoot support', function(hooks) {
     .then(function({ statusCode, document }) {
       assert.equal(statusCode, 200, 'Request handled without error');
       assert.ok(document.getElementById('not-mobile-device'));
+      assert.ok(document.getElementById('not-mobile-device-helper'));
     });
   });
 });
