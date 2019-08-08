@@ -10,10 +10,6 @@ const { Promise } = RSVP;
 
 let fastBootServer;
 
-async function wait(ms) {
-  await new Promise((resolve) => setTimeout(() => resolve(), ms));
-}
-
 module.exports = function setup(hooks) {
   async function visit(assert, path, { headers } = {}) {
     let reqOptions = {

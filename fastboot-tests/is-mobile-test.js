@@ -10,31 +10,28 @@ QUnitModule('FastBoot support', function(hooks) {
   setup(hooks);
 
   test('processes a mobile user agent', async function(assert) {
-    await this.visit('/', {
+    let { document } = await this.visit('/', {
       headers: { 'user-agent': IPHONE_UA }
-    })
-    .then(function({ document }) {
-      assert.ok(document.getElementById('mobile-device'));
-      assert.ok(document.getElementById('mobile-device-helper'));
     });
+
+    assert.ok(document.getElementById('mobile-device'));
+    assert.ok(document.getElementById('mobile-device-helper'));
   });
 
   test('processes a desktop user agent', async function(assert) {
-    await this.visit('/', {
+    let { document } = await this.visit('/', {
       headers: { 'user-agent': DESKTOP_UA }
-    })
-    .then(function({ document }) {
-      assert.ok(document.getElementById('not-mobile-device'));
-      assert.ok(document.getElementById('not-mobile-device-helper'));
     });
+
+    assert.ok(document.getElementById('not-mobile-device'));
+    assert.ok(document.getElementById('not-mobile-device-helper'));
   });
 
   test('handles a missing user agent header', async function(assert) {
-    await this.visit('/')
-    .then(function({ statusCode, document }) {
-      assert.equal(statusCode, 200, 'Request handled without error');
-      assert.ok(document.getElementById('not-mobile-device'));
-      assert.ok(document.getElementById('not-mobile-device-helper'));
-    });
+    let { statusCode, document } = await this.visit('/');
+
+    assert.equal(statusCode, 200, 'Request handled without error');
+    assert.ok(document.getElementById('not-mobile-device'));
+    assert.ok(document.getElementById('not-mobile-device-helper'));
   });
 });
