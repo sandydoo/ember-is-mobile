@@ -4,8 +4,8 @@ const getChannelURL = require('ember-source-channel-url');
 
 module.exports = async function() {
   return {
+    useYarn: true,
     scenarios: [
-      useYarn: true,
       {
         name: 'ember-lts-3.4',
         npm: {
@@ -68,17 +68,17 @@ module.exports = async function() {
             '@ember/jquery': '^0.5.1'
           }
         }
-      }
-    },
-    {
+      },
+      {
       name: 'ember-default',
-      npm: {
-        devDependencies: {}
+        npm: {
+          devDependencies: {}
+        }
+      },
+      {
+        name: 'fastboot',
+        command: 'yarn run test:fastboot'
       }
-    },
-    {
-      name: 'fastboot',
-      command: 'yarn run test:fastboot'
-    }
-  ]
+    ]
+  };
 };
