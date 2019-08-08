@@ -4,6 +4,7 @@ import { getOwner } from '@ember/application';
 import { isBlank } from '@ember/utils';
 import isMobile from 'ismobilejs';
 
+
 /**
  * The attributes returned by isMobile are accessible. However, they should be
  * accessed using the `get` helper, since they may be undefined if the user
@@ -27,8 +28,7 @@ export default Service.extend({
 
       userAgent = userAgent[0];
 
-      // Call with the current context to avoid leaking the node global space!
-      queries = isMobile.call(this, userAgent);
+      queries = isMobile.isMobile(userAgent);
     } else {
       queries = isMobile;
     }

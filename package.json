@@ -35,12 +35,10 @@
     "test:fastboot": "qunit fastboot-tests"
   },
   "dependencies": {
-    "broccoli-funnel": "^2.0.1",
-    "broccoli-merge-trees": "^2.0.0",
-    "broccoli-stew": "^1.4.0",
+    "ember-auto-import": "^1.5.2",
     "ember-cli-babel": "^7.7.3",
     "ember-cli-import-polyfill": "^0.2.0",
-    "ismobilejs": "^0.4.1"
+    "ismobilejs": "^0.5.2"
   },
   "devDependencies": {
     "@ember/optional-features": "^0.7.0",

@@ -1,11 +1,11 @@
 {{#if isMobile.any}}
-    <p id='mobile-device'>I'm a mobile device!</p>
+  <p id="mobile-device">I'm a mobile device!</p>
 {{else}}
-    <p id='not-mobile-device'>I'm not a mobile device :(</p>
+  <p id="not-mobile-device">I'm not a mobile device :(</p>
 {{/if}}
 
-{{#if (is-mobile 'any')}}
-    <p id="mobile-device-helper">I'm a mobile device ( Rendered via helper)</p>
+{{#if (is-mobile "any")}}
+  <p id="mobile-device-helper">I'm a mobile device ( Rendered via helper)</p>
 {{else}}
-    <p id="not-mobile-device-helper">I'm a not a mobile device ( Rendered via helper)</p>
+  <p id="not-mobile-device-helper">I'm a not a mobile device ( Rendered via helper)</p>
 {{/if}}
