@@ -1,9 +1,12 @@
 module.exports = {
   root: true,
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
     sourceType: 'module'
   },
+  plugins: [
+    'ember'
+  ],
   extends: [
     'eslint:recommended',
     'plugin:ember/recommended'
@@ -11,37 +14,37 @@ module.exports = {
   env: {
     browser: true
   },
-  rules: {
-    // override rules' settings here
-
-    // Ember
-    // General
-    'ember/local-modules': 'off',
-    'ember/no-observers': 'off',
-    'ember/no-side-effects': 'error',
-    'ember/named-functions-in-promises': 'off',
-    'ember/use-ember-get-and-set': 'error',
-    'ember/use-brace-expansion': 'error',
-    'ember/new-module-imports': 'error',
-    'ember/no-old-shims': 'error',
-
-    // Organization
-    'ember/order-in-components': 'error',
-    'ember/order-in-controllers': 'error',
-    'ember/order-in-models': 'error',
-    'ember/order-in-routes': 'error',
-
-    // Controllers
-    'ember/alias-model-in-controller': 'off',
-
-    // Components
-    'ember/avoid-leaking-state-in-components': 'error',
-    'ember/closure-actions': 'error',
-    'ember/no-on-calls-in-components': 'error',
-
-    // Routing
-    'ember/routes-segments-snake-case': 'error',
-    'ember/no-capital-letters-in-routes': 'off'
-  }
+  overrides: [
+    // node files
+    {
+      files: [
+        '.eslintrc.js',
+        '.template-lintrc.js',
+        'ember-cli-build.js',
+        'index.js',
+        'testem.js',
+        'blueprints/*/index.js',
+        'config/**/*.js',
+        'tests/dummy/config/**/*.js'
+      ],
+      excludedFiles: [
+        'addon/**',
+        'addon-test-support/**',
+        'app/**',
+        'tests/dummy/app/**'
+      ],
+      parserOptions: {
+        sourceType: 'script'
+      },
+      env: {
+        browser: false,
+        node: true
+      },
+      plugins: ['node'],
+      rules: Object.assign({}, require('eslint-plugin-node').configs.recommended.rules, {
+        // add your custom rules and overrides for node files here
+      })
+    }
+  ]
 };
 

@@ -1,4 +1,3 @@
-/* eslint-env node */
 'use strict';
 
 const mergeTrees = require('broccoli-merge-trees');
@@ -9,7 +8,7 @@ const stew = require('broccoli-stew');
 const map = stew.map;
 
 module.exports = {
-  name: 'ismobilejs',
+  name: require('./package').name
 
   included() {
     this._super.included.apply(this, arguments);

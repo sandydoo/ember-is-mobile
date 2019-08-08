@@ -1,4 +1,6 @@
-# 🐹 ember-is-mobile 📱
+🐹 ember-is-mobile 📱
+==============================================================================
+
 [![Build Status](https://travis-ci.org/sandydoo/ember-is-mobile.svg?branch=master)](https://travis-ci.org/sandydoo/ember-is-mobile)
 [![Ember Observer Score](http://emberobserver.com/badges/ember-is-mobile.svg)](http://emberobserver.com/addons/ember-is-mobile)
 [![dependencies](https://david-dm.org/sandydoo/ember-is-mobile.svg)](https://david-dm.org/sandydoo/ember-is-mobile)
@@ -9,15 +11,19 @@ Works seamlessly in both the browser and in **FastBoot**!
 
 This addon leverages [isMobile.js](https://github.com/kaimallea/isMobile) for parsing user agent strings. It also exports isMobile.js as an ES6 accessible module.
 
-## Installation
+Installation
+------------------------------------------------------------------------------
 
-`ember install ember-is-mobile`
+```
+ember install ember-is-mobile
+```
 
 #### FastBoot requirements
 
 This addon no longer supports pre-1.0 FastBoot versions. You need to use at least `ember-cli-fastboot: 1.0.0+` if you want to use this addon in FastBoot.
 
-## Usage
+Usage
+------------------------------------------------------------------------------
 
 #### isMobile service
 
@@ -39,7 +45,7 @@ The properties are also available in templates:
 {{/if}}
 ```
 
-### is-mobile Helper
+#### is-mobile Helper
 
 The is-mobile helper can be used as an alternative to `isMobile` Service.
 It expects one argument to be passed as a param.
@@ -95,10 +101,13 @@ if (this.get('fastboot.isFastBoot')) {
 
 Naturally, you can still access isMobile in the browser using `window.isMobile`.
 
-## Upgrading
+Upgrading
+------------------------------------------------------------------------------
 
 This addon uses a blueprint to add `ismobilejs` to your app's dependencies using a blueprint. This step is necessary if you're using FastBoot. To get the latest version from the blueprint, run `ember g ember-is-mobile`.
 
-## License
 
-[MIT](https://github.com/sandydoo/ember-is-mobile/blob/master/LICENSE.md) © Sander Melnikov.
+License
+------------------------------------------------------------------------------
+
+This project is licensed under the [MIT License](LICENSE.md) © Sander Melnikov.
