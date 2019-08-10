@@ -39,10 +39,10 @@ The properties are also available in templates:
 {{/if}}
 ```
 
-#### is-mobile Helper
+#### is-mobile helper
 
-The is-mobile helper can be used as an alternative to `isMobile` Service.
-It expects one argument to be passed as a param.
+The is-mobile helper can be used as an alternative to `isMobile` service.
+It expects one argument – a string specifying the user agent test.
 
 ```handlebars
 {{#if (is-mobile "any")}}
