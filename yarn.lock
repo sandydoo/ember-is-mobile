@@ -2512,11 +2512,6 @@ broccoli-module-unification-reexporter@^1.0.0:
     mkdirp "^0.5.1"
     walk-sync "^0.3.2"
 
-broccoli-node-api@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/broccoli-node-api/-/broccoli-node-api-1.6.0.tgz#34914e3cc45cce1a0dbaa00db998e931b8440de3"
-  integrity sha512-oEQo/nLs3Zt0gCEKGY+o9hguLZNeFzYVV+0ku8hzyjSi5NPSnocWm4SwS3vSph0pbcUsrTWFD/FM3A0jsjpeLg==
-
 broccoli-node-info@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/broccoli-node-info/-/broccoli-node-info-1.1.0.tgz#3aa2e31e07e5bdb516dd25214f7c45ba1c459412"
@@ -2598,13 +2593,6 @@ broccoli-source@^1.1.0:
   resolved "https://registry.yarnpkg.com/broccoli-source/-/broccoli-source-1.1.0.tgz#54f0e82c8b73f46580cbbc4f578f0b32fca8f809"
   integrity sha1-VPDoLItz9GWAy7xPV48LMvyo+Ak=
 
-broccoli-source@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/broccoli-source/-/broccoli-source-3.0.0.tgz#c7c9ba24505941b72a0244568285bc859f69dfbd"
-  integrity sha512-G4Zc8HngZIdASyQOiz/9H/0Gjc2F02EFwhWF4wiueaI+/FBrM9Ixj6Prno/1aiLIYcN0JvRC3oytN9uOVonTww==
-  dependencies:
-    broccoli-node-api "^1.6.0"
-
 broccoli-sri-hash@^2.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/broccoli-sri-hash/-/broccoli-sri-hash-2.1.2.tgz#bc69905ed7a381ad325cc0d02ded071328ebf3f3"
@@ -2616,7 +2604,7 @@ broccoli-sri-hash@^2.1.0:
     sri-toolbox "^0.2.0"
     symlink-or-copy "^1.0.1"
 
-broccoli-stew@^1.4.0, broccoli-stew@^1.5.0:
+broccoli-stew@^1.5.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/broccoli-stew/-/broccoli-stew-1.6.0.tgz#01f6d92806ed6679ddbe48d405066a0e164dfbef"
   integrity sha512-sUwCJNnYH4Na690By5xcEMAZqKgquUQnMAEuIiL3Z2k63mSw9Xg+7Ew4wCrFrMmXMcLpWjZDOm6Yqnq268N+ZQ==
