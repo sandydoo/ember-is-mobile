@@ -2,7 +2,7 @@ import Service from '@ember/service';
 import { computed, get, set } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { isBlank } from '@ember/utils';
-import isMobile from 'ismobilejs';
+import isMobile from 'ember-is-mobile';
 
 
 /**
@@ -28,7 +28,7 @@ export default Service.extend({
 
       userAgent = userAgent[0];
 
-      queries = isMobile.isMobile(userAgent);
+      queries = isMobile(userAgent);
     } else {
       queries = isMobile;
     }
