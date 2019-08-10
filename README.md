@@ -16,10 +16,6 @@ Installation
 ember install ember-is-mobile
 ```
 
-#### FastBoot requirements
-
-This addon no longer supports pre-1.0 FastBoot versions. You need to use at least `ember-cli-fastboot: 1.0.0+` if you want to use this addon in FastBoot.
-
 Usage
 ------------------------------------------------------------------------------
 
@@ -74,20 +70,21 @@ The full list of user agent tests provided by isMobile:
 
 #### Importing
 
-This addon also shims isMobile.js, so you can import it yourself if you need to. Note that it is imported from `ismobilejs`.
+This addon also shims isMobile.js, so you can import it yourself if you need to.
+
 In most cases you should use the service instead. If you need to use this addon as a shim only, open an issue and I'll consider a way of making the service injection opt-out.
 
 ```js
-import isMobile from 'ismobilejs';
+import isMobile from 'ember-is-mobile';
 ```
 
 In the browser, the isMobile object returns the computed user agent tests.
 
 ```js
-isMobile(navigator.userAgent); // => { apple: {}, windows: {}, ... }
+isMobile; // => { apple: {}, windows: {}, ... }
 ```
 
-In FastBoot however, the import returns just the isMobile function, since `navigator` is obviously not available. You can fetch the FastBoot headers yourself and run the method manually. Note that this syntax will only work in FastBoot.
+In FastBoot however, the import returns just the isMobile function, since `navigator` is not available. You can fetch the FastBoot headers yourself and run the method manually. Note that this syntax will only work in FastBoot.
 
 ```js
 if (this.get('fastboot.isFastBoot')) {
@@ -96,8 +93,6 @@ if (this.get('fastboot.isFastBoot')) {
     isMobile(userAgent); // => { apple: {}, windows: {}, ... }
 }
 ```
-
-Naturally, you can still access isMobile in the browser using `window.isMobile`.
 
 Upgrading
 ------------------------------------------------------------------------------

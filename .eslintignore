@@ -13,6 +13,7 @@
 # misc
 /coverage/
 !.*
+README.md
 
 # ember-try
 /.node_modules.ember-try/
