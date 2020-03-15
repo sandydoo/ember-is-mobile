@@ -9,6 +9,6 @@ module.exports = {
   // installed on the FastBoot App Server when it runs `npm install` in the
   // dist folder.
   afterInstall: function() {
-    return this.addPackagesToProject('ismobilejs', '^0.5.2');
+    return this.addPackagesToProject('ismobilejs', '^1.0.3');
   }
 };
