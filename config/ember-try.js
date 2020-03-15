@@ -7,18 +7,18 @@ module.exports = async function() {
     useYarn: true,
     scenarios: [
       {
-        name: 'ember-lts-3.4',
+        name: 'ember-lts-3.12',
         npm: {
           devDependencies: {
-            'ember-source': '~3.4.0'
+            'ember-source': '~3.12.0'
           }
         }
       },
       {
-        name: 'ember-lts-3.8',
+        name: 'ember-lts-3.16',
         npm: {
           devDependencies: {
-            'ember-source': '~3.8.0'
+            'ember-source': '~3.16.0'
           }
         }
       },
@@ -70,14 +70,23 @@ module.exports = async function() {
         }
       },
       {
-      name: 'ember-default',
-        npm: {
-          devDependencies: {}
-        }
+        name: 'fastboot',
+        command: 'yarn test:fastboot'
       },
       {
-        name: 'fastboot',
-        command: 'yarn run test:fastboot'
+        name: 'ember-classic',
+        env: {
+          EMBER_OPTIONAL_FEATURES: JSON.stringify({
+            'application-template-wrapper': true,
+            'default-async-observers': false,
+            'template-only-glimmer-components': false
+          })
+        },
+        npm: {
+          ember: {
+            edition: 'classic'
+          }
+        }
       }
     ]
   };
