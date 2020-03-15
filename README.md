@@ -30,20 +30,27 @@ Usage
 
 #### isMobile service
 
-The isMobile service is auto-injected into your app and provides access to the results of the user agent tests provided by isMobile.js. **This service works in both the browser and in FastBoot**. The FastBoot support is particularly useful if you want to conditionally render large blocks of content to target desktop or mobile devices.
+The isMobile service provides access to the results of the user agent tests provided by isMobile.js. **This service works in both the browser and in FastBoot**. The FastBoot support is particularly useful if you want to conditionally render large blocks of content to target desktop or mobile devices.
 
 **N.B.** Don't use this addon as a replacement for good responsive design!
 
 You can query the user agent tests in your controllers, components and routes:
 
 ```js
-this.get('isMobile.any'); // => true|false
+import Component from '@ember/component';
+
+export default class extends Component {
+  @service isMobile;
+
+  constructor() {
+    super(...arguments);
+    console.log(this.isMobile.any); // => true|false
+  }
+}
 ```
 
-The properties are also available in templates:
-
 ```handlebars
-{{#if isMobile.any}}
+{{#if this.isMobile.any}}
   I'm on a mobile device!
 {{/if}}
 ```
@@ -65,40 +72,27 @@ It expects one argument – a string specifying the user agent test.
 </div>
 ```
 
-The full list of user agent tests provided by isMobile:
-
-* `any`
-* `phone`
-* `tablet`
-* `apple`
-* `android`
-* `amazon`
-* `windows`
-* `seven_inch`
-* `other`
 
 #### Importing
 
-This addon also shims isMobile.js, so you can import it yourself if you need to.
-
-In most cases you should use the service instead. If you need to use this addon as a shim only, open an issue and I'll consider a way of making the service injection opt-out.
+This addon also shims isMobile.js, so you can import it yourself if you need to. In most cases you should use the service instead.
 
 ```js
 import isMobile from 'ember-is-mobile';
 ```
 
-In the browser, the isMobile object returns the computed user agent tests.
+In the browser, you can call the `isMobile` function with no arguments.
 
 ```js
-isMobile; // => { apple: {}, windows: {}, ... }
+isMobile(); // => { apple: {}, windows: {}, ... }
 ```
 
-In FastBoot however, the import returns just the isMobile function, since `navigator` is not available. You can fetch the FastBoot headers yourself and run the method manually. Note that this syntax will only work in FastBoot.
+In FastBoot, however, you need to fetch the FastBoot headers yourself and run the method manually. Note that this syntax will only work in FastBoot.
 
 ```js
 if (this.get('fastboot.isFastBoot')) {
-    const headers = this.get('fastboot.request.headers');
-    const userAgent = headers.get('user-agent');
+    let headers = this.get('fastboot.request.headers');
+    let userAgent = headers.get('user-agent');
     isMobile(userAgent); // => { apple: {}, windows: {}, ... }
 }
 ```

@@ -19,18 +19,17 @@ export default Service.extend({
     this._super(...arguments);
 
     let queries;
+
     if (get(this, 'fastboot.isFastBoot')) {
-      const headers = get(this, 'fastboot.request.headers');
+      let headers = get(this, 'fastboot.request.headers');
       let userAgent = get(headers, 'headers.user-agent');
 
       // isMobile tries to fetch `navigator` if we give it a blank user agent.
       if (isBlank(userAgent)) { return; }
 
-      userAgent = userAgent[0];
-
-      queries = isMobile(userAgent);
+      queries = isMobile(userAgent[0]);
     } else {
-      queries = isMobile;
+      queries = isMobile();
     }
 
     for (let media in queries) {
