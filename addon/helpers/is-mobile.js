@@ -8,7 +8,8 @@ export default class IsMobile extends Helper {
 
   compute([param]) {
     if (param) {
-      return get(this.isMobile.tests, param);
+      let test = get(this.isMobile.tests, param);
+      return (typeof test === 'undefined') ? false : test;
     }
 
     return this.isMobile.tests;

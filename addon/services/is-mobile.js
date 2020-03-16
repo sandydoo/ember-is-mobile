@@ -16,6 +16,8 @@ export default class IsMobileService extends Service {
     return getOwner(this).lookup('service:fastboot');
   }
 
+  tests = {};
+
   constructor() {
     super(...arguments);
 
