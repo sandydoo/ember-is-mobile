@@ -1,5 +1,5 @@
 import Service from '@ember/service';
-import { computed, get, set } from '@ember/object';
+import { computed } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { isBlank } from '@ember/utils';
 import isMobile from 'ember-is-mobile';
@@ -10,30 +10,33 @@ import isMobile from 'ember-is-mobile';
  * accessed using the `get` helper, since they may be undefined if the user
  * agent header is blank.
  */
-export default Service.extend({
-  fastboot: computed(function() {
+export default class IsMobileService extends Service {
+  @computed
+  get fastboot() {
     return getOwner(this).lookup('service:fastboot');
-  }),
+  }
 
-  init() {
-    this._super(...arguments);
+  constructor() {
+    super(...arguments);
 
-    let queries;
+    let tests;
 
-    if (get(this, 'fastboot.isFastBoot')) {
-      let headers = get(this, 'fastboot.request.headers');
-      let userAgent = get(headers, 'headers.user-agent');
+    if (this.fastboot.isFastBoot) {
+      let headers = this.fastboot.request.headers;
+      let userAgent = headers.headers['user-agent'];
 
       // isMobile tries to fetch `navigator` if we give it a blank user agent.
       if (isBlank(userAgent)) { return; }
 
-      queries = isMobile(userAgent[0]);
+      tests = isMobile(userAgent[0]);
     } else {
-      queries = isMobile();
+      tests = isMobile();
     }
 
-    for (let media in queries) {
-      set(this, media, queries[media]);
+    for (let media in tests) {
+      this[media] = tests[media];
     }
+
+    this.tests = tests;
   }
-});
+}

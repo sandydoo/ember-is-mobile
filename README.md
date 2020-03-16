@@ -58,7 +58,7 @@ export default class extends Component {
 #### is-mobile helper
 
 The is-mobile helper can be used as an alternative to `isMobile` service.
-It expects one argument – a string specifying the user agent test.
+It takes an *optional* argument – a string specifying the user agent test.
 
 ```handlebars
 {{#if (is-mobile "any")}}

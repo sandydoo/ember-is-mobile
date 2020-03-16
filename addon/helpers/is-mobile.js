@@ -1,15 +1,16 @@
 import Helper from "@ember/component/helper";
-import { isPresent } from "@ember/utils";
-import { inject as service } from "@ember/service";
-import { assert } from "@ember/debug";
+import { inject as service } from '@ember/service';
 import { get } from "@ember/object"
 
-export default Helper.extend({
-  isMobile: service(),
 
-  compute(params) {
-    assert('Missing parameter for the is-mobile helper', isPresent(params[0]));
-    const isMobile = get(this, 'isMobile');
-    return get(isMobile, params[0]);
+export default class IsMobile extends Helper {
+  @service isMobile;
+
+  compute([param]) {
+    if (param) {
+      return get(this.isMobile.tests, param);
+    }
+
+    return this.isMobile.tests;
   }
-});
+}
