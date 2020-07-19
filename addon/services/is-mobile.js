@@ -23,7 +23,7 @@ export default class IsMobileService extends Service {
 
     let tests;
 
-    if (this.fastboot.isFastBoot) {
+    if (this.fastboot !== undefined && this.fastboot.isFastBoot) {
       let headers = this.fastboot.request.headers;
       let userAgent = headers.headers['user-agent'];
 
