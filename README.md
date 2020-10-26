@@ -1,13 +1,27 @@
-🐹 ember-is-mobile 📱
+ember-is-mobile
 ==============================================================================
 
 [![Build Status](https://travis-ci.org/sandydoo/ember-is-mobile.svg?branch=master)](https://travis-ci.org/sandydoo/ember-is-mobile)
 
-> Detect requests from mobile devices in your Ember apps!
+Detect requests from mobile devices in your [Ember][ember] apps.
 
-Works seamlessly in both the browser and in **FastBoot**!
+This addon uses [isMobile.js][ismobilejs] for parsing user agent strings. Works seamlessly in both the browser and in [FastBoot][fastboot].
 
-This addon leverages [isMobile.js](https://github.com/kaimallea/isMobile) for parsing user agent strings. It also exports isMobile.js as an ES6 accessible module.
+
+- [Install](#install)
+- [Compatability](#compatability)
+- [Usage](#usage)
+  - [As a service](#as-a-service)
+  - [As a helper](#as-a-helper)
+  - [Directly](#directly)
+
+
+Install
+------------------------------------------------------------------------------
+
+```
+ember install ember-is-mobile
+```
 
 
 Compatibility
@@ -18,21 +32,12 @@ Compatibility
 * Node.js v10 or above
 
 
-Installation
-------------------------------------------------------------------------------
-
-```
-ember install ember-is-mobile
-```
-
 Usage
 ------------------------------------------------------------------------------
 
-#### isMobile service
+### As a service
 
-The isMobile service provides access to the results of the user agent tests provided by isMobile.js. **This service works in both the browser and in FastBoot**. The FastBoot support is particularly useful if you want to conditionally render large blocks of content to target desktop or mobile devices.
-
-**N.B.** Don't use this addon as a replacement for good responsive design!
+The `isMobile` service provides access to the results of the user agent tests provided by `isMobile.js`. This service works in both the browser and in FastBoot. The FastBoot support is particularly useful if you want to conditionally render large blocks of content to target desktop or mobile devices.
 
 You can query the user agent tests in your controllers, components and routes:
 
@@ -55,10 +60,11 @@ export default class extends Component {
 {{/if}}
 ```
 
-#### is-mobile helper
 
-The is-mobile helper can be used as an alternative to `isMobile` service.
-It takes an *optional* argument – a string specifying the user agent test.
+### As a helper
+
+The `is-mobile` helper can be used as an alternative to `isMobile` service.
+It takes an *optional* argument — a string specifying the user agent test.
 
 ```handlebars
 {{#if (is-mobile "any")}}
@@ -73,9 +79,9 @@ It takes an *optional* argument – a string specifying the user agent test.
 ```
 
 
-#### Importing
+### Directly
 
-This addon also shims isMobile.js, so you can import it yourself if you need to. In most cases you should use the service instead.
+This addon also re-exports `isMobile.js`, so you can import it yourself if you need to. In most cases you should use the service instead.
 
 ```js
 import isMobile from 'ember-is-mobile';
@@ -97,13 +103,24 @@ if (this.get('fastboot.isFastBoot')) {
 }
 ```
 
-Upgrading
-------------------------------------------------------------------------------
 
-This addon uses a blueprint to add `ismobilejs` to your app's dependencies using a blueprint. This step is necessary if you're using FastBoot. To get the latest version from the blueprint, run `ember g ember-is-mobile`.
+Contributing
+--------------------------------------------------------------------------------
+
+See the [Contributing](CONTRIBUTING.md) guide for details.
+
+For more information on using ember-cli, visit [https://ember-cli.com/](https://ember-cli.com/).
 
 
 License
-------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
-This project is licensed under the [MIT License](LICENSE.md) © Sander Melnikov.
+[MIT][license-url] © [Sander Melnikov][maintainer-url].
+
+
+[ember]: https://emberjs.com/
+[fastboot]: https://ember-fastboot.com/
+[ismobilejs]: https://github.com/kaimallea/isMobile/
+
+[license-url]: LICENSE.md
+[maintainer-url]: https://github.com/sandydoo
