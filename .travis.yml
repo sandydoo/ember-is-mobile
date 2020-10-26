@@ -37,6 +37,11 @@ jobs:
         - yarn lint
         - yarn test:ember
 
+    - stage: "Tests"
+      name: "FastBoot Tests"
+      script:
+        - yarn test:fastboot
+
     - stage: "Additional Tests"
       name: "Floating Dependencies"
       install:
@@ -52,7 +57,6 @@ jobs:
     - env: EMBER_TRY_SCENARIO=ember-beta
     - env: EMBER_TRY_SCENARIO=ember-canary
     - env: EMBER_TRY_SCENARIO=ember-default-with-jquery
-    - env: EMBER_TRY_SCENARIO=fastboot
     - env: EMBER_TRY_SCENARIO=ember-classic
 
 before_install:

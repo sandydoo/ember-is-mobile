@@ -60,10 +60,6 @@ module.exports = async function() {
         }
       },
       {
-        name: 'fastboot',
-        command: 'yarn test:fastboot'
-      },
-      {
         name: 'ember-classic',
         env: {
           EMBER_OPTIONAL_FEATURES: JSON.stringify({
