@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-const { module: QUnitModule, test } = require('qunitjs');
+const { module: QUnitModule, test } = require('qunit');
 const setup = require('./setup');
 
 const IPHONE_UA =
