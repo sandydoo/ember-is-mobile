@@ -18,7 +18,6 @@
   "license": "MIT",
   "author": "Sander Melnikov",
   "directories": {
-    "doc": "doc",
     "test": "tests"
   },
   "bugs": {
