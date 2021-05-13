@@ -1,6 +1,6 @@
 {
   "name": "ember-is-mobile",
-  "version": "4.1.1",
+  "version": "4.1.2",
   "description": "Detect requests from mobile devices in your Ember apps.",
   "keywords": [
     "ember-addon",
