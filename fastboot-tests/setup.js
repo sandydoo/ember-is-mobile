@@ -15,36 +15,37 @@ module.exports = function setup(hooks) {
     let reqOptions = {
       uri: 'http://localhost:8000' + path,
       headers,
-      resolveWithFullResponse: true
-    }
+      resolveWithFullResponse: true,
+    };
 
-    return request(reqOptions)
-      .then(function(response) {
-        let dom = new JSDOM(response.body);
-        return {
-          statusCode: response.statusCode,
-          headers: response.headers,
-          document: dom.window.document
-        };
-      });
+    return request(reqOptions).then(function (response) {
+      let dom = new JSDOM(response.body);
+      return {
+        statusCode: response.statusCode,
+        headers: response.headers,
+        document: dom.window.document,
+      };
+    });
   }
 
   /**
    * Build the dummy app and start the FastBoot App Server. Watch stdout for at
    * least one message that the server has started.
    */
-  hooks.before(async function() {
+  hooks.before(async function () {
     if (!process.env.REUSE_FASTBOOT_BUILD) {
       execFileSync('node', ['./node_modules/.bin/ember', 'build']);
       process.env.REUSE_FASTBOOT_BUILD = true;
     }
 
-    fastBootServer = spawn('node', ['fastBootServer.js'])
+    fastBootServer = spawn('node', ['fastBootServer.js']);
 
     let serverStarting = new Promise((resolve) => {
       fastBootServer.stdout.on('data', (data) => {
         process.stdout.write(data);
-        if (/HTTP server started/.test(data)) { resolve(); }
+        if (/HTTP server started/.test(data)) {
+          resolve();
+        }
       });
     });
 
@@ -54,11 +55,11 @@ module.exports = function setup(hooks) {
   /**
    * Kill the FastBoot App Server.
    */
-  hooks.after(async function() {
+  hooks.after(async function () {
     fastBootServer.kill('SIGTERM');
   });
 
-  hooks.beforeEach(function(assert) {
+  hooks.beforeEach(function (assert) {
     this.visit = visit.bind(this, assert);
   });
 };

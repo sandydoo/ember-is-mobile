@@ -1,9 +1,7 @@
 import Service from '@ember/service';
-import { computed } from '@ember/object';
 import { getOwner } from '@ember/application';
 import { isBlank } from '@ember/utils';
 import isMobile from 'ember-is-mobile';
-
 
 /**
  * The attributes returned by isMobile are accessible. However, they should be
@@ -11,7 +9,6 @@ import isMobile from 'ember-is-mobile';
  * agent header is blank.
  */
 export default class IsMobileService extends Service {
-  @computed
   get fastboot() {
     return getOwner(this).lookup('service:fastboot');
   }
@@ -22,13 +19,14 @@ export default class IsMobileService extends Service {
     super(...arguments);
 
     let tests;
-
     if (this.fastboot !== undefined && this.fastboot.isFastBoot) {
       let headers = this.fastboot.request.headers;
       let userAgent = headers.headers['user-agent'];
 
       // isMobile tries to fetch `navigator` if we give it a blank user agent.
-      if (isBlank(userAgent)) { return; }
+      if (isBlank(userAgent)) {
+        return;
+      }
 
       tests = isMobile(userAgent[0]);
     } else {

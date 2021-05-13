@@ -14,5 +14,5 @@ module.exports = {
   // dist folder.
   afterInstall() {
     return this.addPackageToProject('ismobilejs', '^1.1.1');
-  }
+  },
 };

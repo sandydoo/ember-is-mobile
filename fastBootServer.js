@@ -7,4 +7,4 @@ let server = new FastBootAppServer({
   port: 8000,
 });
 
-server.start()
+server.start();
